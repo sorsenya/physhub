@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Вариант 211 — PhysHub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Вариант 211</h1>
+
+    <p><b>Ученик:</b> <span id="studentInfo"></span></p>
+
+    <hr>
+
+    <div class="task">
+      <p>1️⃣ Сколько будет 2 + 2?</p>
+      <input type="number" id="q1">
+    </div>
+
+    <div class="task">
+      <p>2️⃣ Сколько будет 5 × 2?</p>
+      <input type="number" id="q2">
+    </div>
+
+    <div class="task">
+      <p>3️⃣ Сколько будет 10 − 3?</p>
+      <input type="number" id="q3">
+    </div>
+
+    <br>
+
+    <button onclick="finishTest()">Отправить результат</button>
+
+    <p id="result"></p>
+  </div>
+
+  <script src="script.js"></script>
+
+  <script>
+  
+    const name = localStorage.getItem("studentName") || "";
+    const surname = localStorage.getItem("studentSurname") || "";
+    const className = localStorage.getItem("studentClass") || "";
+
+    document.getElementById("studentInfo").textContent =
+      name + " " + surname + " (" + className + ")";
+
+    function finishTest() {
+      let score = 0;
+      
+      const q1 = document.getElementById("q1").value;
+      const q2 = document.getElementById("q2").value;
+      const q3 = document.getElementById("q3").value;
+
+      if (q1 == "4") score++;
+      if (q2 == "10") score++;
+      if (q3 == "7") score++;
+
+      document.getElementById("result").textContent =
+        "Ваш результат: " + score + " из 3";
+
+      sendResult(score);
+    }
+  </script>
+
+</body>
+</html>
