@@ -2,20 +2,235 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>PhysHub</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Геометрия 10 кл.</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #000000;
+      color: #f5f5f7;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+      padding: 6px;
+      line-height: 1.32;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    /* Быстрая навигация сверху */
+    .nav {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+
+    .nav a {
+      background: #1c1c1e;
+      color: #64d2ff;
+      text-decoration: none;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 0;
+      border-radius: 8px;
+      border: 1px solid #2c2c2e;
+    }
+
+    .nav a:active {
+      background: #2c2c2e;
+    }
+
+    /* Карточки */
+    .card {
+      background-color: #141416;
+      border-left: 3px solid #0a84ff;
+      border-radius: 10px;
+      padding: 8px 9px;
+      margin-bottom: 8px;
+    }
+
+    .card.theorem {
+      border-left-color: #30d158;
+    }
+
+    .card.key {
+      border-left-color: #ff9f0a;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      color: #64d2ff;
+      margin-bottom: 2px;
+    }
+
+    .card.theorem .badge {
+      color: #30d158;
+    }
+
+    .card.key .badge {
+      color: #ff9f0a;
+    }
+
+    h2 {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
+
+    p.text {
+      font-size: 13px;
+      color: #e5e5ea;
+      margin-bottom: 6px;
+    }
+
+    .hl {
+      color: #ffd60a;
+      font-weight: 600;
+    }
+
+    /* Блок Дано / Доказать */
+    .dano {
+      background: #1f1f23;
+      border-radius: 6px;
+      padding: 5px 7px;
+      font-size: 12px;
+      color: #d1d1d6;
+      font-family: "SF Mono", Menlo, monospace;
+      line-height: 1.35;
+    }
+
+    .dano b {
+      color: #ffffff;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    .top-btn {
+      display: block;
+      text-align: center;
+      background: #1c1c1e;
+      color: #8e8e93;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 8px;
+      border-radius: 8px;
+      margin-top: 6px;
+    }
+  </style>
 </head>
-<body>
-  <div class="container">
-    <h1>PhysHub</h1>
+<body id="top">
 
-    <input type="text" id="name" placeholder="Ваше имя">
-    <input type="text" id="surname" placeholder="Ваша фамилия">
-    <input type="text" id="class" placeholder="Ваш класс">
-    <input type="number" id="taskNumber" placeholder="Номер задачи">
+  <!-- Быстрые кнопки перехода по номерам -->
+  <nav class="nav">
+    <a href="#p1">1 Опр</a>
+    <a href="#p2">2 Опр</a>
+    <a href="#p3">3 Опр</a>
+    <a href="#p4">4 Лем</a>
+    <a href="#p5">5 Т1</a>
+    <a href="#p6">6 Т2</a>
+    <a href="#p7">7 Приз</a>
+    <a href="#p8">8 Един</a>
+  </nav>
 
-    <button onclick="goToTask()">Перейти</button>
-  </div>
-  <script src="script.js"></script>
+  <!-- 1 -->
+  <article class="card" id="p1">
+    <div class="badge">1 • Определение</div>
+    <h2>Перпендикулярные прямые</h2>
+    <p class="text">Две прямые в пространстве называются перпендикулярными (взаимно перпендикулярными), если <span class="hl">угол между ними равен 90°</span>.</p>
+    <div class="dano">
+      <b>Дано:</b> ∠(a, b) = 90°<br>
+      <b>Следует:</b> a ⊥ b
+    </div>
+  </article>
+
+  <!-- 2 -->
+  <article class="card key" id="p2">
+    <div class="badge">2 • Определение (важно!)</div>
+    <h2>Прямая ⊥ плоскости</h2>
+    <p class="text">Прямая называется перпендикулярной к плоскости, если она перпендикулярна к <span class="hl">любой прямой</span>, лежащей в этой плоскости.</p>
+    <div class="dano">
+      <b>Дано:</b> a ⊥ α, x ⊂ α<br>
+      <b>Следует:</b> a ⊥ x
+    </div>
+  </article>
+
+  <!-- 3 -->
+  <article class="card" id="p3">
+    <div class="badge">3 • Определение</div>
+    <h2>Перпендикуляр к плоскости</h2>
+    <p class="text">Перпендикуляром, проведённым из данной точки к данной плоскости, называется <span class="hl">отрезок</span>, соединяющий данную точку с точкой плоскости и лежащий на прямой, ⊥ к плоскости. Конец этого отрезка в плоскости — <span class="hl">основание перпендикуляра</span>.</p>
+    <div class="dano">
+      <b>Дано:</b> A ∉ α, H ∈ α, AH ⊥ α<br>
+      <b>Следует:</b> AH — перпендикуляр, H — основание
+    </div>
+  </article>
+
+  <!-- 4 -->
+  <article class="card theorem" id="p4">
+    <div class="badge">4 • Лемма</div>
+    <h2>О 2-х параллельных прямых</h2>
+    <p class="text">Если одна из двух параллельных прямых перпендикулярна к третьей прямой, то и другая прямая перпендикулярна к этой прямой.</p>
+    <div class="dano">
+      <b>Дано:</b> a ∥ b, a ⊥ c<br>
+      <b>Доказать:</b> b ⊥ c
+    </div>
+  </article>
+
+  <!-- 5 -->
+  <article class="card theorem" id="p5">
+    <div class="badge">5 • Теорема 1 (прямая)</div>
+    <h2>Параллельность и ⊥ к плоскости</h2>
+    <p class="text">Если одна из двух параллельных прямых перпендикулярна к плоскости, то и другая прямая перпендикулярна к этой плоскости.</p>
+    <div class="dano">
+      <b>Дано:</b> a ∥ a₁, a ⊥ α<br>
+      <b>Доказать:</b> a₁ ⊥ α
+    </div>
+  </article>
+
+  <!-- 6 -->
+  <article class="card theorem" id="p6">
+    <div class="badge">6 • Теорема 2 (обратная)</div>
+    <h2>Две прямые ⊥ плоскости</h2>
+    <p class="text">Если две прямые перпендикулярны к плоскости, то они параллельны.</p>
+    <div class="dano">
+      <b>Дано:</b> a ⊥ α, b ⊥ α<br>
+      <b>Доказать:</b> a ∥ b
+    </div>
+  </article>
+
+  <!-- 7 -->
+  <article class="card key" id="p7">
+    <div class="badge">7 • Признак (важно!)</div>
+    <h2>Признак ⊥ прямой и плоскости</h2>
+    <p class="text">Если прямая перпендикулярна к <span class="hl">двум пересекающимся</span> прямым, лежащим в плоскости, то она перпендикулярна к этой плоскости.</p>
+    <div class="dano">
+      <b>Дано:</b> p ⊂ α, q ⊂ α, p ∩ q = O, a ⊥ p, a ⊥ q<br>
+      <b>Доказать:</b> a ⊥ α
+    </div>
+  </article>
+
+  <!-- 8 -->
+  <article class="card theorem" id="p8">
+    <div class="badge">8 • Теорема</div>
+    <h2>О единственности перпендикуляра</h2>
+    <p class="text">Через любую точку пространства проходит прямая, перпендикулярная к данной плоскости, и притом только одна.</p>
+    <div class="dano">
+      <b>Дано:</b> плоскость α, точка M<br>
+      <b>Доказать:</b> ∃! прямая a: M ∈ a, a ⊥ α
+    </div>
+  </article>
+
+  <a href="#top" class="top-btn">↑ Наверх</a>
+
 </body>
 </html>
